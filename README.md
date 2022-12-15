@@ -41,4 +41,5 @@ Beware that anyone who has write access to the MC server's files is able to edit
 - Execution Timeout and Execution block Timeout have no effect on the command at this point.
 - The command mode has no effect on the command feedback itself. in any case, the output will be sent in chat
 - the console is spamed with debug messages
+- threads are not closed after a task exits
 - and many more....
