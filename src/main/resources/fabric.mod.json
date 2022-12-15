@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "betterconsolemc",
+  "version": "${version}",
+
+  "name": "Better ConsoleMC",
+  "description": "This is the successor to ConsoleMc. The purpose of this mod is to allow a more controlled and secure environment. Custom commands can be configured in a config file and it is NOT possible to run any command in the server's console.",
+  "authors": [
+    "Jonas_Jones"
+  ],
+  "contact": {
+    "homepage": "https://jonasjones.me/projects/betterconsolemc",
+    "sources": "https://github.com/J-onasJones/BetterConsoleMC"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/betterconsolemc/icon.png",
+
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "me.jonasjones.betterconsolemc.BetterConsoleMC"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  }
+}
