@@ -1,6 +1,5 @@
 package me.jonasjones.betterconsolemc.cmdconfig;
 
-import com.mojang.datafixers.util.Pair;
 import me.jonasjones.betterconsolemc.BetterConsoleMC;
 import me.jonasjones.betterconsolemc.modconfig.ModConfigProvider;
 import me.jonasjones.betterconsolemc.modconfig.SimpleConfig;

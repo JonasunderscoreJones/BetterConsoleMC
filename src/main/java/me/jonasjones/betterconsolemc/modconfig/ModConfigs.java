@@ -5,10 +5,9 @@ import me.jonasjones.betterconsolemc.BetterConsoleMC;
 
 public class ModConfigs {
     public static SimpleConfig MODCONFIG;
-    private static ModConfigProvider modconfigs;
-
     public static boolean IS_ENABLED;
     public static boolean REUQIRE_OP;
+    private static ModConfigProvider modconfigs;
 
     public static void registerConfigs() {
         modconfigs = new ModConfigProvider();

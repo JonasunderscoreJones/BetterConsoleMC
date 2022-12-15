@@ -3,11 +3,9 @@ package me.jonasjones.betterconsolemc.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import me.jonasjones.betterconsolemc.BetterConsoleMC;
-import me.jonasjones.betterconsolemc.cmdconfig.CmdConfigHandler;
 import me.jonasjones.betterconsolemc.system.ShellCommand;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
 import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.command.argument.MessageArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -23,11 +21,15 @@ public class GameCommandHandler {
                     return 1;
                 })))
         );
-        }
+    }
+
     public static Text runCommand(CommandPreRegistry commandPreRegistry, CommandContext<ServerCommandSource> context) {
-        new Thread(() -> {ShellCommand.execute(commandPreRegistry, context);}).start();
+        new Thread(() -> {
+            ShellCommand.execute(commandPreRegistry, context);
+        }).start();
         return Text.of("Return");
     }
+
     public static void returnCommandOutput(String cmd, String commandFeedback, CommandContext<ServerCommandSource> context) {
         String consoleLog = "  [" + cmd + "]: " + commandFeedback;
         BetterConsoleMC.LOGGER.info(consoleLog);

@@ -5,9 +5,8 @@ import me.jonasjones.betterconsolemc.exceptions.BroadcastToOpNotBoolException;
 import me.jonasjones.betterconsolemc.exceptions.CommandModeException;
 import me.jonasjones.betterconsolemc.exceptions.ExecTimeoutException;
 import me.jonasjones.betterconsolemc.exceptions.PermissionLevelException;
-import me.jonasjones.betterconsolemc.util.Constants.CmdMode;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
-import org.jetbrains.annotations.NotNull;
+import me.jonasjones.betterconsolemc.util.Constants.CmdMode;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +16,7 @@ import java.util.List;
 
 public class CmdConfigHandler {
     public static List<CommandPreRegistry> FULLREG;
+
     public static void getCommands(String path) throws IOException {
         List<CommandPreRegistry> commands = new ArrayList<CommandPreRegistry>();
         BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -28,7 +28,7 @@ public class CmdConfigHandler {
                 try {
                     commands.add(preRegisterCommands(linecontent));
                 } catch (Exception e) {
-                    BetterConsoleMC.LOGGER.error("ERROR WHILE PREREGISTERING COMMAND IN CONFIG FILE IN LINE " + Integer.toString(linecount));
+                    BetterConsoleMC.LOGGER.error("ERROR WHILE PREREGISTERING COMMAND IN CONFIG FILE IN LINE " + linecount);
                     BetterConsoleMC.LOGGER.error(String.valueOf(e));
                 }
             }
@@ -102,7 +102,7 @@ public class CmdConfigHandler {
     }
 
     private static String getCommand(String configCommandDef) throws Exception {
-        return configCommandDef.replaceFirst(getCommandMode(configCommandDef).name() + " " + Integer.toString(getPermissionLevel(configCommandDef)) + " " + Integer.toString(getExecTimeout(configCommandDef)) + " " + getExecRerunTiemout(configCommandDef) + " " + getBroadcastToOP(configCommandDef) + " " + getIngameCommand(configCommandDef) + " ", "")
+        return configCommandDef.replaceFirst(getCommandMode(configCommandDef).name() + " " + getPermissionLevel(configCommandDef) + " " + getExecTimeout(configCommandDef) + " " + getExecRerunTiemout(configCommandDef) + " " + getBroadcastToOP(configCommandDef) + " " + getIngameCommand(configCommandDef) + " ", "")
                 .replaceFirst("\"", "")
                 .replaceAll("\"$", "");
     }

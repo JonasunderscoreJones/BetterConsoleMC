@@ -1,7 +1,5 @@
 package me.jonasjones.betterconsolemc.util;
 
-import java.util.List;
-
 public class CommandPreRegistry { //TODO: Add timeout before command can be ran again (unixtimestamp)
     private Constants.CmdMode commandmode;
     private String command;
@@ -40,6 +38,7 @@ public class CommandPreRegistry { //TODO: Add timeout before command can be ran 
     public String getIngamecommand() {
         return this.ingamecommand;
     }
+
     public int getExecRerunTimeout() {
         return this.execRerunTimeout;
     }
