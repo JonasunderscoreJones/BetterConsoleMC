@@ -23,12 +23,6 @@ public class GameCommandHandler {
                     return 1;
                 })))
         );
-        serverCommandSourceCommandDispatcher.register((CommandManager.literal("cmd").requires(source -> source.hasPermissionLevel(4))
-                .then(CommandManager.argument("Console Command", MessageArgumentType.message())
-                        .executes((context -> {
-                            System.out.println("UWU");
-                            return 0;
-                        })))));
         }
     public static Text runCommand(CommandPreRegistry commandPreRegistry, CommandContext<ServerCommandSource> context) {
         new Thread(() -> {ShellCommand.execute(commandPreRegistry, context);}).start();
