@@ -35,3 +35,10 @@ Beware that anyone who has write access to the MC server's files is able to edit
 3. In the config file, enable the webserver and adjust all settings if needed.
 4. Edit the command config file and add your desired commands!
 5. Restart your Minecraft server and You're good to go!
+
+# KNOWN ISSUES
+- It is only possible to define a single command at this point - subject to change once I figure out how to do things
+- Execution Timeout and Execution block Timeout have no effect on the command at this point.
+- The command mode has no effect on the command feedback itself. in any case, the output will be sent in chat
+- the console is spamed with debug messages
+- and many more....
