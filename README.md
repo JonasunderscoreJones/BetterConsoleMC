@@ -11,7 +11,7 @@
 ### About the mod
 This mod allows for simple ingame command creation to allow for system command execution trough a player on the server.
 
-This mod can be looked at as version 2.0 of [ConsoleMC](https://modrinth.com/mod/consolemc) which while being powerful enough, has a big security flaw whe used on big and/or public servers in a way that everyone (that is OP) can run any command on the MC server's host system, giving anyone access to the entire machine and allowing for bad actions to be taken by people who shouldn't have access to it.
+This mod can be looked at as version 2.0 of [ConsoleMC](https://github.com/J-onasJones/ConsoleMC) which while being powerful enough, has a big security flaw whe used on big and/or public servers in a way that everyone (that is OP) can run any command on the MC server's host system, giving anyone access to the entire machine and allowing for bad actions to be taken by people who shouldn't have access to it.
 
 A detailed documentation with examples is available at [this repo's wiki](https://github.com/J-onasJones/BetterConsoleMC/wiki)
 
