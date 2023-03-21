@@ -2,7 +2,6 @@
 
 <a href="https://github.com/J-onasJones/BetterConsoleMC/blob/master/LICENSE"><img src="https://img.shields.io/github/license/J-onasJones/McWebserver?style=flat&color=900c3f" alt="License"></a>
 <a href="https://discord.gg/V2EsuUVmWh"><img src="https://img.shields.io/discord/702180921234817135?color=5865f2&label=Discord&style=flat" alt="Discord"></a>
-<a href="https://www.curseforge.com/minecraft/mc-mods/betterconsolemc"><img src="https://cf.way2muchnoise.eu/full_737211.svg" alt="CF"></a>
 <a href="https://modrinth.com/mod/betterconsolemc"><img src="https://img.shields.io/modrinth/dt/betterconsolemc?logo=modrinth&label=&style=flat&color=242629&labelColor=00AF5C&logoColor=white" alt="Modrinth"></a>
 <a href="https://modrinth.com/mod/betterconsolemc"><img src="https://img.shields.io/modrinth/game-versions/betterconsolemc?logo=modrinth&color=242629&labelColor=00AF5C&logoColor=white"></a>
 
