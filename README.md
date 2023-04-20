@@ -5,7 +5,9 @@
 <a href="https://modrinth.com/mod/betterconsolemc"><img src="https://img.shields.io/modrinth/dt/betterconsolemc?logo=modrinth&label=&style=flat&color=242629&labelColor=00AF5C&logoColor=white" alt="Modrinth"></a>
 <a href="https://modrinth.com/mod/betterconsolemc"><img src="https://img.shields.io/modrinth/game-versions/betterconsolemc?logo=modrinth&color=242629&labelColor=00AF5C&logoColor=white"></a>
 
-<center><img src="https://jonasjones.me/uploads/mod-badges/support-fabric.png" width="250px"><img src="https://jonasjones.me/uploads/mod-badges/support-quilt.png" width="250px"></center>
+<a align="center"><img src="http://cdn.jonasjones.me/uploads/mod-badges/fabric-api.png" width="250px">
+<img src="http://cdn.jonasjones.me/uploads/mod-badges/no-support-forge.png" width="250px">
+<img src="http://cdn.jonasjones.me/uploads/mod-badges/available-modrinth.png" width="250px"><img src="http://cdn.jonasjones.me/uploads/mod-badges/support-fabric.png"  width="250px"><img src="http://cdn.jonasjones.me/uploads/mod-badges/support-quilt.png" width="250px"></a>
 
 ### About the mod
 This mod allows for simple ingame command creation to allow for system command execution trough a player on the server.
