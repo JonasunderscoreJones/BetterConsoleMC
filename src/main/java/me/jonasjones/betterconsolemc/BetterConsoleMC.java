@@ -24,13 +24,6 @@ public class BetterConsoleMC implements ModInitializer {
     public static Path CONFIGDIR = FabricLoader.getInstance().getConfigDir();
     public static CommandPreRegistry COMMANDPREREGISTRY;
 
-    public static void registerCommands() {
-        for (CommandPreRegistry commandPreRegistry : CmdConfigHandler.FULLREG) {
-            COMMANDPREREGISTRY = commandPreRegistry;
-            CommandRegistrationCallback.EVENT.register(GameCommandHandler::register);
-        }
-    }
-
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -45,7 +38,7 @@ public class BetterConsoleMC implements ModInitializer {
         } catch (Exception e) {
             ModConfigs.IS_ENABLED = false;
             LOGGER.error("SYNTAX ERROR(S) IN COMMAND CONFIG FILE OF BETTERCONSOLEMC");
-            LOGGER.error("For security reasons, the mod has therefore beeen disabled and all commands are therefore nonfunctional");
+            LOGGER.error("For security reasons, the mod has beeen disabled and all commands are nonfunctional");
         }
     }
 }
