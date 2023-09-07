@@ -17,7 +17,7 @@ public class GameCommandHandler {
 
         serverCommandSourceCommandDispatcher.register((CommandManager.literal(COMMANDPREREGISTRY.getIngamecommand()).requires(source -> source.hasPermissionLevel(COMMANDPREREGISTRY.getPermissionLevel()))
                 .executes((context -> {
-                    context.getSource().sendFeedback(runCommand(COMMANDPREREGISTRY, context), COMMANDPREREGISTRY.doBroadcastToOp());
+                    context.getSource().sendFeedback(() -> runCommand(COMMANDPREREGISTRY, context), COMMANDPREREGISTRY.doBroadcastToOp());
                     return 1;
                 })))
         );
