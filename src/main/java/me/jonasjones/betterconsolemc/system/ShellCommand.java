@@ -36,8 +36,6 @@ public class ShellCommand {
                     GameCommandHandler.returnCommandOutput(command.getCommand(), line, context);
                 }
                 //get the ingame command name
-
-
                 output.append("[").append(command.getIngamecommand()).append("]").append(line).append("\n");
             }
 

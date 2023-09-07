@@ -6,6 +6,7 @@ import me.jonasjones.betterconsolemc.BetterConsoleMC;
 import me.jonasjones.betterconsolemc.cmdconfig.CmdConfigHandler;
 import me.jonasjones.betterconsolemc.system.ShellCommand;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
+import me.jonasjones.betterconsolemc.util.Constants;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
@@ -29,7 +30,9 @@ public class GameCommandHandler {
 
         serverCommandSourceCommandDispatcher.register((CommandManager.literal(commandPreRegistry.getIngamecommand()).requires(source -> source.hasPermissionLevel(commandPreRegistry.getPermissionLevel()))
                 .executes((context -> {
-                    context.getSource().sendFeedback(() -> runCommand(commandPreRegistry, context), commandPreRegistry.doBroadcastToOp());
+                    if (commandPreRegistry.getCommandmode() == Constants.CmdMode.RETURN) {
+                        context.getSource().sendFeedback(() -> runCommand(commandPreRegistry, context), commandPreRegistry.doBroadcastToOp());
+                    }
                     return 1;
                 })))
         );
