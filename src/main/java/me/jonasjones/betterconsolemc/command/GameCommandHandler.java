@@ -36,10 +36,7 @@ public class GameCommandHandler {
     }
 
     public static Text runCommand(CommandPreRegistry commandPreRegistry, CommandContext<ServerCommandSource> context) {
-        new Thread(() -> {
-            ShellCommand.execute(commandPreRegistry, context);
-        }).start();
-        return Text.of("Return");
+        return Text.of(ShellCommand.execute(commandPreRegistry, context));
     }
 
     public static void returnCommandOutput(String cmd, String commandFeedback, CommandContext<ServerCommandSource> context) {
