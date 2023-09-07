@@ -2,16 +2,16 @@ package me.jonasjones.betterconsolemc;
 
 import me.jonasjones.betterconsolemc.cmdconfig.CmdConfigHandler;
 import me.jonasjones.betterconsolemc.cmdconfig.CmdConfigs;
-import me.jonasjones.betterconsolemc.command.GameCommandHandler;
 import me.jonasjones.betterconsolemc.modconfig.ModConfigs;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
+
+import static me.jonasjones.betterconsolemc.command.GameCommandHandler.registerCommands;
 
 public class BetterConsoleMC implements ModInitializer {
     // This logger is used to write text to the console and the log file.
