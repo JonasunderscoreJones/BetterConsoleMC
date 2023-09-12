@@ -38,9 +38,6 @@ Beware that anyone who has write access to the MC server's files is able to edit
 5. Restart your Minecraft server and You're good to go!
 
 # KNOWN ISSUES
-- It is only possible to define a single command at this point - subject to change once I figure out how to do things
-- Execution Timeout and Execution block Timeout have no effect on the command at this point.
-- The command mode has no effect on the command feedback itself. in any case, the output will be sent in chat
+- Execution Timeout and Execution block Timeout have no effect on the command at this point
 - the console is spamed with debug messages
-- threads are not closed after a task exits
-- and many more....
+- threads are not closed after a task exit
