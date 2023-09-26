@@ -20,11 +20,10 @@ public class CmdConfigHandler {
     public static void getCommands(String path) throws IOException {
         List<CommandPreRegistry> commands = new ArrayList<CommandPreRegistry>();
         BufferedReader reader = new BufferedReader(new FileReader(path));
-        int linecount = 0;
+        int linecount = 1;
         String linecontent = reader.readLine();
         while (linecontent != null) {
-            if (!linecontent.startsWith("#") || linecontent.equals("")) {
-                System.out.println(linecontent);
+            if (!linecontent.startsWith("#") || linecontent.equals("\n")) {
                 try {
                     commands.add(preRegisterCommands(linecontent));
                 } catch (Exception e) {
