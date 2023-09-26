@@ -1,5 +1,8 @@
 package me.jonasjones.betterconsolemc.util;
 
+import lombok.Getter;
+
+@Getter
 public class CommandPreRegistry { //TODO: Add timeout before command can be ran again (unixtimestamp)
     private Constants.CmdMode commandmode;
     private String command;
@@ -17,33 +20,5 @@ public class CommandPreRegistry { //TODO: Add timeout before command can be ran 
         this.ingamecommand = ingamecommand;
         this.execRerunTimeout = execRerunTimeout;
         this.broadcastToOp = broadcastToOp;
-    }
-
-    public Constants.CmdMode getCommandmode() {
-        return this.commandmode;
-    }
-
-    public String getCommand() {
-        return this.command;
-    }
-
-    public int getPermissionLevel() {
-        return this.permissionLevel;
-    }
-
-    public int getExecTimeout() {
-        return this.execTimeout;
-    }
-
-    public String getIngamecommand() {
-        return this.ingamecommand;
-    }
-
-    public int getExecRerunTimeout() {
-        return this.execRerunTimeout;
-    }
-
-    public boolean doBroadcastToOp() {
-        return this.broadcastToOp;
     }
 }
