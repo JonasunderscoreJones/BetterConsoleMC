@@ -27,7 +27,7 @@ public class CmdConfigs {
             cmdconfigs.addSingleLineComment("This message is there to remind you that the mod is running on a UNIX-LIKE machine");
         }
         cmdconfigs.addSingleLineComment("The general syntax of defining a command goes like this:");
-        cmdconfigs.addSingleLineComment("[Command Mode] [Permission Level] [Execution Timeout] [Execution Block Timeout] [Broadcast to OP] [In-game Command name] [command to execute]");
+        cmdconfigs.addSingleLineComment("[Command Mode] [Permission Level] [Execution Timeout] [Broadcast to OP] [In-game Command name] [command to execute]");
         cmdconfigs.addSingleLineComment("Documentation and examples are available at the wiki of the repository");
     }
 
