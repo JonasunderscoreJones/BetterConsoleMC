@@ -42,12 +42,11 @@ public class CmdConfigHandler {
         CmdMode commandMode = getCommandMode(configCommandDef);
         int permissionLevel = getPermissionLevel(configCommandDef);
         int execTimeout = getExecTimeout(configCommandDef);
-        int execRerunTimeout = getExecRerunTiemout(configCommandDef);
         boolean broadcastToOP = doBroadcastToOP(configCommandDef);
         String ingameCommand = getIngameCommand(configCommandDef);
         String command = getCommand(configCommandDef);
 
-        preRegisteredCommand.init(commandMode, command, permissionLevel, execTimeout, ingameCommand, execRerunTimeout, broadcastToOP);
+        preRegisteredCommand.init(commandMode, command, permissionLevel, execTimeout, ingameCommand, broadcastToOP);
 
         return preRegisteredCommand;
     }
@@ -79,21 +78,17 @@ public class CmdConfigHandler {
     }
 
     private static String getIngameCommand(String configCommandDef) {
-        return getSplitCommandPartByIndex(configCommandDef, 5);
-    }
-
-    private static int getExecRerunTiemout(String configCommandDef) {
-        return Integer.parseInt(getSplitCommandPartByIndex(configCommandDef, 3));
-    }
-
-    private static String getBroadcastToOP(String configCommandDef) throws BroadcastToOpNotBoolException {
         return getSplitCommandPartByIndex(configCommandDef, 4);
     }
 
+    private static String getBroadcastToOP(String configCommandDef) throws BroadcastToOpNotBoolException {
+        return getSplitCommandPartByIndex(configCommandDef, 3);
+    }
+
     private static boolean doBroadcastToOP(String configCommandDef) throws BroadcastToOpNotBoolException {
-        if (getSplitCommandPartByIndex(configCommandDef, 4).equals("true")) {
+        if (getSplitCommandPartByIndex(configCommandDef, 3).equals("true")) {
             return true;
-        } else if (getSplitCommandPartByIndex(configCommandDef, 5).equals("false")) {
+        } else if (getSplitCommandPartByIndex(configCommandDef, 4).equals("false")) {
             return false;
         } else {
             throw new BroadcastToOpNotBoolException();
@@ -101,7 +96,7 @@ public class CmdConfigHandler {
     }
 
     private static String getCommand(String configCommandDef) throws Exception {
-        return configCommandDef.replaceFirst(getCommandMode(configCommandDef).name() + " " + getPermissionLevel(configCommandDef) + " " + getExecTimeout(configCommandDef) + " " + getExecRerunTiemout(configCommandDef) + " " + getBroadcastToOP(configCommandDef) + " " + getIngameCommand(configCommandDef) + " ", "")
+        return configCommandDef.replaceFirst(getCommandMode(configCommandDef).name() + " " + getPermissionLevel(configCommandDef) + " " + getExecTimeout(configCommandDef) + " " + getBroadcastToOP(configCommandDef) + " " + getIngameCommand(configCommandDef) + " ", "")
                 .replaceFirst("\"", "")
                 .replaceAll("\"$", "");
     }

@@ -9,16 +9,14 @@ public class CommandPreRegistry { //TODO: Add timeout before command can be ran 
     private int permissionLevel;
     private int execTimeout;
     private String ingamecommand;
-    private int execRerunTimeout;
     private boolean broadcastToOp;
 
-    public void init(Constants.CmdMode commandmode, String command, int permissionLevel, int execTimeout, String ingamecommand, int execRerunTimeout, boolean broadcastToOp) {
+    public void init(Constants.CmdMode commandmode, String command, int permissionLevel, int execTimeout, String ingamecommand, boolean broadcastToOp) {
         this.commandmode = commandmode;
         this.command = command;
         this.permissionLevel = permissionLevel;
         this.execTimeout = execTimeout;
         this.ingamecommand = ingamecommand;
-        this.execRerunTimeout = execRerunTimeout;
         this.broadcastToOp = broadcastToOp;
     }
 }
