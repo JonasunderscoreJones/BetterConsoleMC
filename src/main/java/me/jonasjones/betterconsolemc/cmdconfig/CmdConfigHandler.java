@@ -22,7 +22,7 @@ public class CmdConfigHandler {
         BufferedReader reader = new BufferedReader(new FileReader(path));
         int linecount = 1;
         String linecontent = reader.readLine();
-        while (linecontent != null) {
+        while (!linecontent.isEmpty()) {
             if (!linecontent.startsWith("#") || linecontent.equals("\n")) {
                 try {
                     commands.add(preRegisterCommands(linecontent));
@@ -32,6 +32,9 @@ public class CmdConfigHandler {
                 }
             }
             linecontent = reader.readLine();
+            if (linecontent == null) {
+                break;
+            }
             linecount++;
         }
         FULLREG = commands;
