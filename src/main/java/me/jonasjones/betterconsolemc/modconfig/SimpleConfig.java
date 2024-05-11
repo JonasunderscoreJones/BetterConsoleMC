@@ -62,8 +62,10 @@ public class SimpleConfig {
             try {
                 loadConfig();
             } catch (Exception e) {
-                LOGGER.error(identifier + " failed to load!");
-                LOGGER.trace(e);
+                if (!identifier.equals("Config 'betterconsolemc-commands_config'")) { // this is good code, I swear
+                    LOGGER.error(identifier + " failed to load!");
+                    LOGGER.trace(e);
+                }
                 broken = true;
             }
         }
