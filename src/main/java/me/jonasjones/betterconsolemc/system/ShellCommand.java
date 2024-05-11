@@ -39,8 +39,9 @@ public class ShellCommand {
                     new BufferedReader(new InputStreamReader(process.getInputStream()));
 
             String line;
-            System.out.println("TIMEOUT: " + timeout);
-            System.out.println("TIME: " + System.currentTimeMillis()/1000L);
+            // WIP
+            //System.out.println("TIMEOUT: " + timeout);
+            //System.out.println("TIME: " + System.currentTimeMillis()/1000L);
 
             long finalTimeout = timeout;
             new Thread(() -> {
