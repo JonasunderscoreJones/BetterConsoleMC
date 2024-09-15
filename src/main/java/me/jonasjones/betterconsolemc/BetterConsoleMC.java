@@ -6,10 +6,12 @@ import me.jonasjones.betterconsolemc.modconfig.ModConfigs;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
+import java.util.Map;
 
 import static me.jonasjones.betterconsolemc.command.GameCommandHandler.registerCommands;
 

@@ -59,6 +59,10 @@ public class CmdConfigHandler {
             return CmdMode.SIMPLE;
         } else if (configCommandDef.startsWith("RETURN ")) {
             return CmdMode.RETURN;
+        } else if (configCommandDef.startsWith("GLOBALALIAS ")) {
+            return CmdMode.GLOBALALIAS;
+        } else if (configCommandDef.startsWith("SELFALIAS ")) {
+            return CmdMode.SELFALIAS;
         } else {
             throw new CommandModeException(getSplitCommandPartByIndex(configCommandDef, 0));
         }

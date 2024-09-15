@@ -8,7 +8,9 @@ import me.jonasjones.betterconsolemc.system.ShellCommand;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
 import me.jonasjones.betterconsolemc.util.Constants;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.command.CommandRegistryAccess;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
@@ -16,6 +18,8 @@ import net.minecraft.text.Text;
 import static me.jonasjones.betterconsolemc.BetterConsoleMC.COMMANDPREREGISTRY;
 
 public class GameCommandHandler {
+
+    private static MinecraftServer MC_SERVER;
 
     public static void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
@@ -27,6 +31,18 @@ public class GameCommandHandler {
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher, CommandRegistryAccess commandRegistryAccess, CommandManager.RegistrationEnvironment registrationEnvironment, CommandPreRegistry commandPreRegistry) {
+
+        if (commandPreRegistry.getCommandmode() == Constants.CmdMode.GLOBALALIAS || commandPreRegistry.getCommandmode() == Constants.CmdMode.SELFALIAS) {
+            serverCommandSourceCommandDispatcher.register((CommandManager.literal(commandPreRegistry.getIngamecommand()).requires(source -> source.hasPermissionLevel(commandPreRegistry.getPermissionLevel()))
+                    .executes((context -> {
+                        runIngameCommand(commandPreRegistry, context);
+                        return 1;
+                    })))
+            );
+            // if a command is an alias type, register the tick event
+            startServerHandler();
+            return;
+        }
 
         serverCommandSourceCommandDispatcher.register((CommandManager.literal(commandPreRegistry.getIngamecommand()).requires(source -> source.hasPermissionLevel(commandPreRegistry.getPermissionLevel()))
                 .executes((context -> {
@@ -43,8 +59,24 @@ public class GameCommandHandler {
         return Text.of(ShellCommand.execute(commandPreRegistry, context));
     }
 
+    public static void runIngameCommand(CommandPreRegistry commandPreRegistry, CommandContext<ServerCommandSource> context) {
+        if (commandPreRegistry.getCommandmode() == Constants.CmdMode.GLOBALALIAS) {
+            MC_SERVER.getCommandManager().executeWithPrefix(MC_SERVER.getCommandSource(), commandPreRegistry.getCommand());
+        } else {
+            MC_SERVER.getCommandManager().executeWithPrefix(context.getSource(), commandPreRegistry.getCommand());
+        }
+    }
+
     public static void returnCommandOutput(String cmd, String commandFeedback, CommandContext<ServerCommandSource> context) {
         String consoleLog = "  [" + cmd + "]: " + commandFeedback;
         BetterConsoleMC.LOGGER.info(consoleLog);
+    }
+
+    private static void startServerHandler() {
+        ServerTickEvents.END_SERVER_TICK.register(server -> {
+            if (server.isRunning()) {
+                MC_SERVER = server;
+            }
+        });
     }
 }

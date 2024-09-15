@@ -5,14 +5,20 @@ import me.jonasjones.betterconsolemc.BetterConsoleMC;
 import me.jonasjones.betterconsolemc.command.GameCommandHandler;
 import me.jonasjones.betterconsolemc.modconfig.ModConfigs;
 import me.jonasjones.betterconsolemc.util.CommandPreRegistry;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.command.CommandSource;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ShellCommand {
+
     public static String execute(CommandPreRegistry command, CommandContext<ServerCommandSource> context) {
 
         StringBuilder output = new StringBuilder();
